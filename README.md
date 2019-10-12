@@ -41,7 +41,7 @@
 - 数据可视化
   万金油，直观了解数据分析的结果
 
-![Screen Shot 2019-09-02 at 7.11.51 PM](/Users/lirawx/Documents/Notes/Learning/数据分析实战45/images/screen-shot-01.png)
+![Screen Shot 2019-09-02 at 7.11.51 PM](./images/screen-shot-01.png)
 
 ## 数据采集
 
@@ -49,7 +49,7 @@
 “八抓鱼”
 python 爬虫
 
-## ![Screen Shot 2019-09-02 at 7.13.10 PM](/Users/lirawx/Documents/Notes/Learning/数据分析实战45/images/screen-shot-02.png)
+## ![Screen Shot 2019-09-02 at 7.13.10 PM](./images/screen-shot-02.png)
 
 ## 数据挖掘
 
@@ -57,7 +57,7 @@ python 爬虫
 
 要知道基本流程、十大算法、以及背后的数学基础
 
-![Screen Shot 2019-09-02 at 7.14.46 PM](/Users/lirawx/Documents/Notes/Learning/数据分析实战45/images/screen-shot-04.png)
+![Screen Shot 2019-09-02 at 7.14.46 PM](./images/screen-shot-04.png)
 
 ## 数据可视化
 
@@ -68,4 +68,4 @@ python 爬虫
 - Python \* Matplotlib、Seaborn 等第三方库
 - 第三方工具 \* 可以采用 微图、DataV、 Data GIF Maker 等
 
-![Screen Shot 2019-09-02 at 7.18.04 PM](/Users/lirawx/Documents/Notes/Learning/数据分析实战45/images/screen-shot-03.png)
+![Screen Shot 2019-09-02 at 7.18.04 PM](./images/screen-shot-03.png)
