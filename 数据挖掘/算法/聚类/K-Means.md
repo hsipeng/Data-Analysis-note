@@ -97,3 +97,73 @@ img.save('weixin_new.jpg')
 
 ```
 
+
+
+* R
+
+```R
+# 数据
+# Student, English, Math, Science
+# 1,99,96,97
+# 2,99,96,97
+# 3,98,97,97
+# 4,95,100,95
+# 5,95,96,96
+# 6,96,97,96
+# 7,100,96,97
+# 8,95,98,98
+# 9,98,96,96
+# 10,99,99,95
+
+# 聚类
+grade_input = as.data.frame(read.csv("./grades_km_input.csv"))
+
+kmdata_orig = as.matrix(grade_input[,c("Student", "English", "Math", "Science")])
+
+kmdata <- kmdata_orig[,2:4]
+
+kmdata[1:10,]
+# wss 启发式方案
+wss <- numeric(15)
+
+for (k in 1:15) wss[k] <- sum(kmeans(kmdata, centers = k, nstart = 25)$withinss)
+
+plot(1:15, wss, type="b", xlab = "Number of Clusters", ylab = "Within Sum of Squares")
+
+# 选定k 值为 3
+km <- kmeans(kmdata, 3, nstart = 25)
+km
+
+# ggplot 画图
+library("ggplot2")
+library("grid")
+library("gridExtra")
+df = as.data.frame(kmdata_orig[,2:4])
+df$cluster = factor(km$cluster)
+centers = as.data.frame(km$centers)
+
+g1 = ggplot(data=df, aes(x=English, y=Math, color=cluster)) + 
+  geom_point() + theme(legend.position="right")+
+  geom_point(data=centers, aes(x=English, y=Math, color=as.factor(c(1,2,3))),size=10, alpha=.3,show.legend=FALSE)
+
+g2 = ggplot(data=df, aes(x=English, y=Science, color=cluster)) + 
+  geom_point() +
+  geom_point(data=centers, aes(x=English, y=Science, color=as.factor(c(1,2,3))),size=10, alpha=.3,show.legend=FALSE)
+
+
+g3 = ggplot(data=df, aes(x=Math, y=Science, color=cluster)) + 
+  geom_point() +
+  geom_point(data=centers, aes(x=Math, y=Science, color=as.factor(c(1,2,3))),size=10, alpha=.3,show.legend=FALSE)
+
+temp = ggplot_gtable(ggplot_build(g1))
+# gridExtra 包显示多张图
+grid.arrange(arrangeGrob(g1 + theme(legend.position="none"),
+                         g2 + theme(legend.position="none"),
+                         g3 + theme(legend.position="none"),
+                         top="High School Student Cluster Analysis",
+                         ncol=1))
+
+
+
+```
+
